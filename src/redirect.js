@@ -1,5 +1,5 @@
-//const appScheme = "eatly://";
-const appScheme = "exp://192.168.0.101:8081/--/";
+const appScheme = "eatly://";
+//const appScheme = "exp://192.168.0.101:8081/--/";
 
 const appStoreUrl = "https://testflight.apple.com/join/DtmkJ2B3";
 const playStoreUrl = "https://play.google.com/apps/internaltest/4701703567304493046";
