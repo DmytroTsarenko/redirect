@@ -4,6 +4,10 @@
   justify-content: center;
 }
 
+.container {
+  padding: 0 24px;
+}
+
 .logo {
   margin-top: 22%;
   animation: redirect 1s infinite linear;
