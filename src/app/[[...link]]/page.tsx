@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Redirect from './redirect';
 
 const apiUrl = "https://app-eatly-prod.azurewebsites.net/recipe/get";

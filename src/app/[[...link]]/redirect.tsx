@@ -11,8 +11,8 @@ type RedirectParams = {
 const Redirect = ({ link, id }: RedirectParams) => {
   useEffect(() => {
     const route = link + (id ? '/' + id : '');
-    //redirectToAppOrStore(route);
-  }, []);
+    redirectToAppOrStore(route);
+  }, [link, id]);
 
   return (
     <main className="main">
