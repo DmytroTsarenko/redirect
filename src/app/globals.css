@@ -1,7 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .main {
   height: 100vh;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+img {
+  height: max-content;
 }
 
 .container {
@@ -9,6 +19,8 @@
 }
 
 .logo {
+  height: 110px;
+  width: 150px;
   margin-top: 22%;
   animation: redirect 1s infinite linear;
 }
