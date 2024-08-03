@@ -1,18 +1,18 @@
 'use client';
 import { useEffect } from 'react';
-import { redirectToAppOrStore } from '../../../utils/redirect';
 import Image from 'next/image';
+import { redirectToAppOrStore } from '../../../utils/redirect';
 
 type RedirectParams = {
-  link: string;
+  route: string;
   id?: string;
 }
 
-const Redirect = ({ link, id }: RedirectParams) => {
+const Redirect = ({ route, id }: RedirectParams) => {
   useEffect(() => {
-    const route = link + (id ? '/' + id : '');
-    redirectToAppOrStore(route);
-  }, [link, id]);
+    const link = route + (id ? '/' + id : '');
+    redirectToAppOrStore(link);
+  }, [route, id]);
 
   return (
     <main className="main">

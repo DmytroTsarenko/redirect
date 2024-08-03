@@ -3,10 +3,11 @@ const appScheme = "eatly://";
 const appStoreUrl = "https://testflight.apple.com/join/DtmkJ2B3";
 const playStoreUrl = "https://play.google.com/apps/internaltest/4701703567304493046";
 
-const isAndroid = /Android/i.test(navigator.userAgent);
-const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 export function redirectToAppOrStore(route: string) {
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  
   const appUrl = appScheme + route;
   window.location.href = appUrl;
 
