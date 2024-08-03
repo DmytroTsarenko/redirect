@@ -44,8 +44,10 @@ export default function Page ({ data, link, id }: Props) {
         <link rel="apple-touch-icon" href="/logo.png" />
         <meta property="og:title" content={data.title} />
         <meta property="og:image" content={data.imageUrl} />
+        <meta name="twitter:title" content={data.title} />
         <meta name="twitter:image" content={data.imageUrl}/>
         <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:description" content="Laga mat med Eatly" />
         <meta property="og:description" content={data.cookingTimeInMinutes + ' minuter att laga mat med Eatly'} />
       </Head>
       <Redirect route={link} id={id} />
