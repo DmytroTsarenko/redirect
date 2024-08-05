@@ -12,7 +12,6 @@ interface Props {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { route, id } = context.params!;
-  console.log(route, id);
 
   let data = {
     title: "Eatly App",
@@ -47,7 +46,6 @@ export default function Page ({ data, link, id }: Props) {
         <meta name="twitter:title" content={data.title} />
         <meta name="twitter:image" content={data.imageUrl}/>
         <meta name="twitter:card" content="summary_large_image"/>
-        <meta name="twitter:description" content="Laga mat med Eatly" />
         <meta property="og:description" content={data.cookingTimeInMinutes + ' minuter att laga mat med Eatly'} />
       </Head>
       <Redirect route={link} id={id} />
