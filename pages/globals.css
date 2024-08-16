@@ -25,6 +25,20 @@ img {
   animation: redirect 1s infinite linear;
 }
 
+.bg {
+  background: url(/cover.png);
+  background-size: cover;
+  background-position: 50%;
+  position: fixed;
+  inset: 0px;
+}
+
+@media (min-width: 992px) {
+  .bg {
+    background-position: 100%;
+  }
+}
+
 @keyframes redirect {
   50% {
     scale: 1.25;
