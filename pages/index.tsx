@@ -14,6 +14,7 @@ export default function Page () {
         <title>Eatly</title>
         <link rel="icon" href="/logo.png" />
         <meta property="og:title" content="Eatly" />
+        <meta property="og:image" content="/logo.png"  />
         <meta property="og:description" content="Vad blir det till middag?" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#000000" />
