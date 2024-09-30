@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Redirect from './redirect';
 
-const apiUrl = "https://app-eatly-prod.azurewebsites.net/recipe/get";
+const apiUrl = "https://app-eatly-prod.azurewebsites.net";
 
 interface Props {
   data: any;
@@ -18,9 +18,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     imageUrl: "/logo.png",
   };
 
-  if (id) {
-    const res = await fetch(`${apiUrl}/${id}`);
+  if (id && route == "recipes") {
+    const res = await fetch(`${apiUrl}/recipe/get/${id}`);
     data = await res.json();
+  }
+
+  if (route == "invite") {
+    data.title = "Add Eatly Friend";
   }
 
   return {
