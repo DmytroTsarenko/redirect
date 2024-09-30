@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   if (route == "invite") {
-    data.title = "Add Eatly Friend";
+    data.title = "Lägg till Eatly vän";
   }
 
   return {
