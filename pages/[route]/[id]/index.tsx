@@ -13,14 +13,16 @@ interface Props {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { route, id } = context.params!;
 
-  let data = {
+  let data: any = {
     title: "Eatly App",
     imageUrl: "/logo.png",
+    description: "Vad blir det till middag?"
   };
 
   if (id && route == "recipes") {
     const res = await fetch(`${apiUrl}/recipe/get/${id}`);
     data = await res.json();
+    data.description = `${data.cookingTimeInMinutes} minuter att laga mat med Eatly`;
   }
 
   if (route == "invite") {
@@ -50,7 +52,7 @@ export default function Page ({ data, link, id }: Props) {
         <meta name="twitter:title" content={data.title} />
         <meta name="twitter:image" content={data.imageUrl}/>
         <meta name="twitter:card" content="summary_large_image"/>
-        <meta property="og:description" content={data.cookingTimeInMinutes + ' minuter att laga mat med Eatly'} />
+        <meta property="og:description" content={data.description} />
       </Head>
       <Redirect route={link} id={id} />
     </>
