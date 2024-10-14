@@ -6,16 +6,6 @@ const playStoreUrl = "https://play.google.com/apps/internaltest/4701703567304493
 export function redirectToAppOrStore(route: string = "") {
   const isAndroid = /Android/i.test(navigator.userAgent);
   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-  const isSnapchat = /Snapchat/i.test(navigator.userAgent);
-
-  alert(navigator.userAgent);
-
-  if (isSnapchat) {
-    alert("Öppna denna länk i en vanlig webbläsare.");
-    return; 
-  }
-
   
   const appUrl = appScheme + route;
   window.location.href = appUrl;
@@ -27,4 +17,10 @@ export function redirectToAppOrStore(route: string = "") {
       window.location.href = appStoreUrl;
     }
   }, 400);
+}
+
+export function canRedirect() {
+  const isSnapchat = /Snapchat/i.test(navigator.userAgent);
+
+  return !isSnapchat;
 }

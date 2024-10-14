@@ -1,7 +1,7 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { canRedirect, redirectToAppOrStore } from '../../../utils/redirect';
 import Image from 'next/image';
-import { redirectToAppOrStore } from '../../../utils/redirect';
 
 type RedirectParams = {
   route: string;
@@ -9,14 +9,24 @@ type RedirectParams = {
 }
 
 const Redirect = ({ route, id }: RedirectParams) => {
+  const [error, setError] = useState<string>();
+
   useEffect(() => {
-    const link = route + (id ? '/' + id : '');
-    redirectToAppOrStore(link);
+    if (canRedirect()) {
+      const link = route + (id ? '/' + id : '');
+      redirectToAppOrStore(link);
+    } else {
+      setError("Öppna denna länk i en vanlig webbläsare.")
+    }
   }, [route, id]);
 
   return (
     <main className="main">
-      <Image className="logo" width={150} height={110} src={"/logo.png"} alt="Eatly" priority={true}/>
+      {!error ? (
+        <Image className="logo" width={150} height={110} src={"/logo.png"} alt="Eatly" priority={true}/>
+      ) : (
+        <p className="text">{error}</p>
+      )}
     </main>
   )
 }
