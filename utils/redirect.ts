@@ -8,11 +8,12 @@ export function redirectToAppOrStore(route: string = "") {
   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
   
   const appUrl = appScheme + route;
-  window.location.href = appUrl;
 
   window.addEventListener('blur', () => {
     window.close();
   });
+  
+  window.location.href = appUrl;
 
   setTimeout(() => {
     if (isAndroid) {
