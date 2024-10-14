@@ -9,11 +9,11 @@ export function redirectToAppOrStore(route: string = "") {
   
   const appUrl = appScheme + route;
 
-  window.addEventListener('blur', () => {
-    window.close();
-  });
-  
   window.location.href = appUrl;
+
+  window.alert = (message?: any) => {
+    window.alert("message: " + message);
+  }
 
   setTimeout(() => {
     if (isAndroid) {
