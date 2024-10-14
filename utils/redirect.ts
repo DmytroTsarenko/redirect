@@ -10,9 +10,9 @@ export function redirectToAppOrStore(route: string = "") {
   const appUrl = appScheme + route;
 
   window.location.href = appUrl;
-
+  const alert = window.alert;
   window.alert = (message?: any) => {
-    window.alert("message: " + message);
+    alert("message: " + message);
   }
 
   setTimeout(() => {
