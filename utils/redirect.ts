@@ -9,6 +9,8 @@ export function redirectToAppOrStore(route: string = "") {
 
   const isSnapchat = /Snapchat/i.test(navigator.userAgent);
 
+  alert(navigator.userAgent);
+
   if (isSnapchat) {
     alert("Öppna denna länk i en vanlig webbläsare.");
     return; 
