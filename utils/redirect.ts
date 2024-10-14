@@ -8,26 +8,17 @@ export function redirectToAppOrStore(route: string = "") {
   const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
   
   const appUrl = appScheme + route;
-  let opened = false;
-
-  const handleRedirect = () => {
-    if (document.visibilityState == 'hidden') {
-      opened = true;
-      window.close();
-    }
-  };
-
-  document.addEventListener("visibilitychange", handleRedirect);
   window.location.href = appUrl;
 
+  window.addEventListener('blur', () => {
+    window.close();
+  });
+
   setTimeout(() => {
-    if (!opened) {
-      if (isAndroid) {
-        window.location.href = playStoreUrl;
-      } else if (isIOS) {
-        window.location.href = appStoreUrl;
-      }
+    if (isAndroid) {
+      window.location.href = playStoreUrl;
+    } else if (isIOS) {
+      window.location.href = appStoreUrl;
     }
-    document.removeEventListener("visibilitychange", handleRedirect);
-  }, 200);
+  }, 100);
 }
